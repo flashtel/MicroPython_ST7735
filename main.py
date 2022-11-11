@@ -4,8 +4,9 @@ from bmp import bmp
 import machine
 import ST7735
 
+ST7735.ST7735_TFTHEIGHT = 128
 spi = machine.SPI(1, baudrate=8000000, polarity=0, phase=0)
-d = ST7735.ST7735(spi, rst=4, ce=5, dc=16)
+d = ST7735.ST7735(spi, rst=17, ce=18, dc=16)
 d.reset()
 d.begin()
 d._bground = 0xffff
@@ -25,19 +26,19 @@ bmp('flower64x48.bmp',d,10,10,1)
 
 d._color = 0
 d.set_rotation(0)
-d.p_string(10,10,'Hello World')
+d.p_string(10,10,'Hello Ingrid')
 
 d._color = 0xf100
 d.set_rotation(1)
-d.p_string(10,10,'Hello World')
+d.p_string(10,10,'Hello Ingrid')
 
 d._color = 0x07e0
 d.set_rotation(2)
-d.p_string(10,10,'Hello World')
+d.p_string(10,10,'Hello Ingrid')
 
 d._color = 0x001f
 d.set_rotation(3)
-d.p_string(10,10,'Hello World')
+d.p_string(10,10,'Hello Ingrid')
 
 time.sleep(5)
 d.set_rotation(3)
